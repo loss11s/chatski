@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>А. А. Чацкий: Кандидат в градоначальники</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dom-to-pptx@2.0.3/dist/animations.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dom-to-pptx@2.0.3/dist/transitions.css">
+  <style>
+    :root {
+      --bg: #fdfaf0;
+      --ink: #1a1a1a;
+      --accent: #8b0000;
+      --muted: #555;
+      --border: #d1c7b7;
+    }
+
+    html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink); font-family: 'EB Garamond', serif; -webkit-font-smoothing: antialiased; }
+    
+    .deck { position: relative; height: 100vh; overflow: hidden; }
+    
+    .slide { 
+      position: absolute !important; inset: 0 !important; box-sizing: border-box; 
+      opacity: 0; visibility: hidden; transform: translateX(24px); 
+      transition: opacity .6s ease, transform .6s ease;
+      display: flex; flex-direction: column; padding: 5vh 8vw;
+      background: var(--bg);
+      border: 1px solid var(--border);
+    }
+    .slide.active { opacity: 1; visibility: visible; transform: none; }
+
+    /* Typography */
+    h1, h2, h3 { font-family: 'Playfair Display', serif; margin: 0; line-height: 1.1; font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em; }
+    h1 { font-size: 4.5rem; color: var(--ink); }
+    h2 { font-size: 3rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 0.5rem; }
+    p { font-size: 1.4rem; line-height: 1.5; margin: 0.5rem 0; }
+    
+    .quote { font-style: italic; color: var(--accent); font-size: 1.6rem; margin: 1rem 0; position: relative; padding-left: 1.5rem; }
+    .quote::before { content: '«'; position: absolute; left: 0; color: var(--border); font-size: 3rem; top: -0.5rem; }
+
+    .speaker-note { 
+      margin-top: auto; padding: 1.5rem; background: rgba(26, 26, 26, 0.03); 
+      border-left: 4px solid var(--accent); font-style: italic; font-size: 1.1rem; color: var(--muted);
+      position: relative;
+    }
+    .speaker-note::before { content: 'Реплика спикера:'; display: block; font-weight: bold; font-style: normal; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em; margin-bottom: 0.5rem; color: var(--accent); }
+
+    /* Layout Components */
+    .grid-2 { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; height: 100%; align-items: center; }
+    .hero-img { width: 100%; height: 80vh; object-fit: cover; border: 1px solid var(--ink); box-shadow: 15px 15px 0 var(--border); }
+    
+    .tagline { font-size: 1.2rem; font-weight: bold; color: var(--accent); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1rem; }
+    
+    .list-item { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem; }
+    .list-item::before { content: '—'; color: var(--accent); font-weight: bold; }
+
+    .opponent-card { border: 1px solid var(--border); padding: 2rem; background: white; transition: transform 0.3s; }
+    .opponent-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+    .opponent-card strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 0.5rem; }
+
+    /* Nav overrides */
+    .deck-nav { background: rgba(26, 26, 26, 0.9) !important; }
+
+    @media (max-width: 900px) {
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 2rem; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .hero-img { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="deck">
+  <!-- Slide 1: Title -->
+  <section class="slide slide-transition-fade active">
+    <div class="grid-2">
+      <div class="fade-in">
+        <div class="tagline">Предвыборная программа</div>
+        <h1>Александр Андреевич Чацкий</h1>
+        <p style="font-size: 2rem; margin: 1.5rem 0;">«Свобода, служба, наука: Москва без раболепия»</p>
+        <div class="quote">Просвещение — шаг в будущее!</div>
+      </div>
+      <div class="zoom-in">
+        <img src="https://284baef4-3d14-4ca5-8247-4811f0d6b14b.selstorage.ru/aeeae854-a12a-4683-9f79-69b043c9e472_104f370c-3905-4a42-be0c-c67cbef287ec.png" alt="А. А. Чацкий" class="hero-img">
+      </div>
+    </div>
+    <div class="speaker-note fly-in-bottom">Уважаемые избиратели! Сегодня я предлагаю не просто программу управления Москвой — я предлагаю переосмыслить саму суть власти и общества.</div>
+  </section>
+
+  <!-- Slide 2: Problem -->
+  <section class="slide slide-transition-push">
+    <div class="grid-2">
+      <div class="appear">
+        <img src="https://284baef4-3d14-4ca5-8247-4811f0d6b14b.selstorage.ru/c12daa80-e3c4-4679-84c6-132437475572_1c76f1c6-0376-4830-ae23-23e795efebd8.png" alt="Москва Фамусова" class="hero-img">
+      </div>
+      <div class="fade-in">
+        <h2>«Москва Фамусова»</h2>
+        <div class="list-item">Чинопочитание вместо компетентности.</div>
+        <div class="list-item">Крепостнические нравы в быту и управлении.</div>
+        <div class="list-item">Боязнь любой новизны.</div>
+        <div class="quote" style="font-size: 1.2rem;">Что станет говорить княгиня Марья Алексевна!</div>
+      </div>
+    </div>
+    <div class="speaker-note">Москва задыхается в сетях лицемерия. Мы тратим силы на поддержание «репутации», а не на развитие.</div>
+  </section>
+
+  <!-- Slide 3: Block 1 -->
+  <section class="slide slide-transition-fade" style="background-image: linear-gradient(rgba(253,250,240,0.85), rgba(253,250,240,0.85)), url('https://284baef4-3d14-4ca5-8247-4811f0d6b14b.selstorage.ru/b95da717-0ac7-42eb-86fe-608f5722beaf_a22e894e-695f-4b61-b8a4-1c1dc707af42.png'); background-size: cover; background-position: center;">
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+      <h2 class="wipe-in">Свобода мысли и образование</h2>
+      <div class="fade-in" style="margin-top: 2rem;">
+        <p><strong>Доступное образование</strong> для всех сословий.</p>
+        <p><strong>Поддержка науки</strong> и просвещения в духе Ломоносова и Радищева.</p>
+        <p><strong>Отмена цензуры</strong> на идеи.</p>
+        <div class="quote" style="display: inline-block;">Служить бы рад — прислуживаться тошно</div>
+      </div>
+    </div>
+    <div class="speaker-note">Без свободы мысли нет прогресса. Мы должны перестать бояться новых идей.</div>
+  </section>
+
+  <!-- Slide 4: Block 2 -->
+  <!-- Slide 4: Block 2 (обновлено) -->
+<section class="slide slide-transition-wipe">
+  <h2>Реформа службы и управления</h2>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+    <div class="fly-in-left">
+      <p style="font-size: 1.15rem; color: var(--muted);">Наша система отбора чиновников будет основываться на таланте и профессионализме, а не на связях. Мы внедрим независимую комиссию по подбору, открытые конкурсы и регулярные переаттестации.</p>
+      <ul class="list" style="margin:0; padding-left: 1.2rem;">
+        <li class="list-item" style="margin:.4rem 0;">Справедливый отбор и конкурсы по требованиям должности</li>
+        <li class="list-item" style="margin:.4rem 0;">Периодические переаттестации и ротации</li>
+        <li class="list-item" style="margin:.4rem 0;">Публикация отчетов о результатах и расходах</li>
+      </ul>
+    </div>
+    <div class="assessment" style="border: 2px solid var(--border); padding: 2rem; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+      <div style="font-size: 2rem; color: var(--accent); margin-bottom: .5rem;">🔎</div>
+      <div class="quote" style="font-size: 1.6rem; margin-bottom: .5rem; text-align:center;">А судьи кто?</div>
+      <p style="text-align:center; max-width: 320px; color: var(--muted);">Должности занимают те, кто доказывает компетентность и готов нести ответственность перед гражданами.</p>
+      <p style="text-align:center; margin:0; color:var(--muted);">Гражданский контроль, независимый аудит и открытые данные — наш путь к доверию.</p>
+    </div>
+  </div>
+  <div class="speaker-note">Наши граждане — главный арбитр. Мы строим систему, где судьи — это общество.</div>
+</section>
+
+  <!-- Slide 5: Block 3 -->
+  <section class="slide slide-transition-zoom">
+    <div style="background: var(--ink); color: var(--bg); padding: 4rem; margin: -5vh -8vw; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+      <h2 style="color: var(--bg); border-color: var(--bg);" class="appear">Социальная справедливость</h2>
+      <div class="fade-in" style="max-width: 700px; margin-top: 2rem;">
+        <p style="font-size: 1.8rem;">Постепенная отмена крепостной зависимости.</p>
+        <p style="font-size: 1.8rem;">Защита прав горожан и крестьян.</p>
+        <div class="quote" style="color: var(--bg); border-left-color: var(--bg);">Я не из тех, кто льстит ради места</div>
+        <p style="margin-top: 2rem; opacity: 0.8;">Москва должна стать городом свободных граждан.</p>
+      </div>
+    </div>
+    <div class="speaker-note" style="background: rgba(255,255,255,0.05); color: #fff;">Рабство душит экономику и мораль. Москва должна стать городом свободных граждан.</div>
+  </section>
+
+  <!-- Slide 6: Opponents -->
+  <section class="slide slide-transition-dissolve">
+    <h2>Оппоненты и контраргументы</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem;">
+      <div class="opponent-card fade-in">
+        <strong>Фамусов</strong>
+        <p>«Так заведено!»</p>
+        <p style="color: var(--accent); font-weight: bold; margin-top: 1rem;">Наш ответ:</p>
+        <p>Заведено — не значит правильно.</p>
+      </div>
+      <div class="opponent-card fade-in" style="transition-delay: 0.2s;">
+        <strong>Скалозуб</strong>
+        <p>«Дисциплина — основа порядка»</p>
+        <p style="color: var(--accent); font-weight: bold; margin-top: 1rem;">Наш ответ:</p>
+        <p>Порядок без свободы — это казарма.</p>
+      </div>
+      <div class="opponent-card fade-in" style="transition-delay: 0.4s;">
+        <strong>Молчалин</strong>
+        <p>«Тише едешь — дальше будешь»</p>
+        <p style="color: var(--accent); font-weight: bold; margin-top: 1rem;">Наш ответ:</p>
+        <p>Москва не может ждать вечно.</p>
+      </div>
+    </div>
+    <div class="speaker-note">Мои оппоненты цепляются за прошлое. Я предлагаю строить будущее.</div>
+  </section>
+
+  <!-- Slide 7: Conclusion -->
+  <section class="slide slide-transition-fade" style="justify-content: center; align-items: center; text-align: center; background: linear-gradient(to bottom, #d1c7b7, #fdfaf0);">
+    <div class="zoom-in">
+      <div class="tagline">Вместе к новой Москве</div>
+      <h1 style="font-size: 5rem; margin-bottom: 2rem;">Голосуйте за перемены!</h1>
+      <div style="max-width: 600px; margin: 0 auto;">
+        <p>Москва, свободная от страха и лицемерия.</p>
+        <p>Город, где ценят ум и труд.</p>
+      </div>
+      <div style="margin-top: 3rem; border-top: 1px solid var(--ink); padding-top: 1rem; display: inline-block;">
+        <strong>Александр Андреевич Чацкий</strong>
+      </div>
+    </div>
+    <div class="speaker-note" style="margin-top: 4rem; width: 80%;">Я не обещаю лёгкой дороги. Но я обещаю честную. Спасибо за внимание!</div>
+  </section>
+
+  <!-- Navigation -->
+  <nav class="deck-nav" aria-label="Slides" style="position:fixed!important;left:50%!important;bottom:18px!important;transform:translateX(-50%)!important;display:flex!important;align-items:center!important;gap:12px!important;z-index:9999!important;padding:6px 10px!important;border-radius:999px!important;background:rgba(20,20,20,.55)!important;backdrop-filter:blur(10px)!important;-webkit-backdrop-filter:blur(10px)!important;color:#fff!important;font:500 14px/1 system-ui,Arial,sans-serif!important;user-select:none!important">
+    <button id="deckPrev" class="deck-btn" aria-label="Previous" style="appearance:none!important;border:0!important;cursor:pointer!important;width:32px!important;height:32px!important;border-radius:50%!important;background:rgba(255,255,255,.12)!important;color:#fff!important;font-size:20px!important;display:flex!important;align-items:center!important;justify-content:center!important">&lsaquo;</button>
+    <div id="deckDots" class="deck-dots" style="display:flex!important;gap:7px!important;align-items:center!important"></div>
+    <span id="deckCounter" class="deck-counter" style="min-width:42px!important;text-align:center!important;opacity:.85!important;font-variant-numeric:tabular-nums!important">1 / 7</span>
+    <button id="deckNext" class="deck-btn" aria-label="Next" style="appearance:none!important;border:0!important;cursor:pointer!important;width:32px!important;height:32px!important;border-radius:50%!important;background:rgba(255,255,255,.12)!important;color:#fff!important;font-size:20px!important;display:flex!important;align-items:center!important;justify-content:center!important">&rsaquo;</button>
+  </nav>
+</div>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var total=slides.length,i=0;
+  var prev=document.getElementById('deckPrev'),
+      next=document.getElementById('deckNext'),counter=document.getElementById('deckCounter'),
+      dotsBox=document.getElementById('deckDots'),
+      nav=document.querySelector('.deck-nav');
+
+  if(nav){
+    nav.style.setProperty('transition','opacity 1s ease','important');
+    nav.style.setProperty('opacity','1','important');
+  }
+
+  slides.forEach(function(s,idx){
+    s.style.setProperty('isolation','isolate','important');
+    var d=document.createElement('span');
+    d.className='deck-dot';
+    d.style.setProperty('width','7px','important');
+    d.style.setProperty('height','7px','important');
+    d.style.setProperty('border-radius','50%','important');
+    d.style.setProperty('background','rgba(255,255,255,.35)','important');
+    d.style.setProperty('cursor','pointer','important');
+    d.style.setProperty('display','inline-block','important');
+    d.style.setProperty('transition','background .2s,transform .2s','important');
+    d.addEventListener('click',function(){go(idx)});
+    dotsBox.appendChild(d);
+  });
+  var dots=[].slice.call(dotsBox.children);
+
+  function render(){
+    slides.forEach(function(s,idx){s.classList.toggle('active',idx===i)});
+    dots.forEach(function(d,idx){
+      var active=idx===i;
+      d.style.setProperty('background',active?'#fff':'rgba(255,255,255,.35)','important');
+      d.style.setProperty('transform',active?'scale(1.35)':'none','important');
+    });
+    counter.textContent=(i+1)+' / '+total;
+    prev.disabled=i===0;next.disabled=i===total-1;
+    prev.style.setProperty('opacity',i===0?'.35':'1','important');
+    prev.style.setProperty('cursor',i===0?'default':'pointer','important');
+    next.style.setProperty('opacity',i===total-1?'.35':'1','important');
+    next.style.setProperty('cursor',i===total-1?'default':'pointer','important');
+  }
+  function go(n){i=Math.max(0,Math.min(total-1,n));render()}
+  prev.addEventListener('click',function(){go(i-1)});
+  next.addEventListener('click',function(){go(i+1)});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();go(i+1)}
+    else if(e.key==='ArrowLeft'){go(i-1)}});
+  var x0=null;
+  document.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  document.addEventListener('touchend',function(e){
+    if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;
+    if(Math.abs(dx)>50)go(i+(dx<0?1:-1));x0=null;});
+
+  var idleTimer=null;
+  function wake(){
+    if(nav)nav.style.setProperty('opacity','1','important');
+    clearTimeout(idleTimer);
+    idleTimer=setTimeout(function(){if(nav)nav.style.setProperty('opacity','0','important')},3000);
+  }
+  ['mousemove','mousedown','keydown','touchstart','touchmove'].forEach(function(ev){
+    document.addEventListener(ev,wake,{passive:true});
+  });
+  wake();
+  render();
+})();
+</script>
+</body>
+</html></html>
